@@ -61,10 +61,23 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
+                    ArrayList<HashMap<String, String>> result = JobData.findByValue(searchTerm);
+                    if (result.size() == 0) {
+                        System.out.println("no results found");
+                    } else {
+                        printJobs(result);
+                    }
 
-                    printJobs(JobData.findByValue(searchTerm));
+
                 } else {
-                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+
+                    ArrayList<HashMap<String, String>> result = JobData.findByColumnAndValue(searchField, searchTerm);
+                    if (result.size() == 0) {
+                        System.out.println("no results found");
+                    } else {
+                        printJobs(result);
+                    }
+
                 }
             }
         }

@@ -131,7 +131,7 @@ public class JobData {
              allJobs) {
             for (String jobdata:
                 value.keySet() ) {
-                if (value.get(jobdata).toLowerCase().contains(term.toLowerCase())){
+                if (value.get(jobdata).contains(term)){
                     result.add(value);
                 }
             }
